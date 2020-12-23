@@ -13,21 +13,27 @@ class AddLocationMapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var location: CLLocation?
     var linkText: String = ""
+    var locationString: String = ""
     
     @IBAction func postStudentInformation(_ sender: Any) {
-//        ParseClient.createStudentInformation(self.location?.coordinate.latitude, self.location?.coordinate.longitude, self.linkText)
-        
-//        ParseClient.createStudentInformation(latitude: 45.237369, longitude: -93.653923, linkText: "https://www.apple.com", completion: testHandleResponse(success:error:))
-        
-        ParseClient.createStudentInformation(latitude: self.location!.coordinate.latitude, longitude: self.location!.coordinate.longitude, linkText: self.linkText, completion: testHandleResponse(success:error:))
+    
+        ParseClient.createStudentInformation(latitude: self.location!.coordinate.latitude,
+                                             longitude: self.location!.coordinate.longitude,
+                                             mapString: self.locationString,
+                                             linkText: self.linkText,
+                                             completion: handlePostResponse(success:error:))
         
     }
     
-    func testHandleResponse(success: Bool, error: Error?) {
+    func handlePostResponse(success: Bool, error: Error?) {
         if success {
-            print("yaya")
+//            dismiss(animated: true, completion: nil)
         } else {
-            print("no no")
+            // Present an error to the user if the post fails....
+            let alertVC = UIAlertController(title: "Posting Location Failed", message: "Unable to post your current location. Please try again.", preferredStyle: .alert)
+            
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertVC, animated: true)
         }
     }
     
@@ -37,7 +43,8 @@ class AddLocationMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         let annotation = MKPointAnnotation()
-        annotation.coordinate = self.location!.coordinate
+//        annotation.coordinate = self.location!.coordinate
+        annotation.coordinate = self.location?.coordinate ?? CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
         annotation.subtitle = linkText
         
         let latDelta:CLLocationDegrees = 0.05
@@ -53,6 +60,7 @@ class AddLocationMapViewController: UIViewController, MKMapViewDelegate {
 
         self.mapView.addAnnotation(annotation)
         mapView.setRegion(region, animated: true)
+        mapView.delegate = self
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

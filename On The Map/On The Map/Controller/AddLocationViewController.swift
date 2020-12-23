@@ -73,6 +73,7 @@ class AddLocationViewController: UIViewController {
                 let vc = segue.destination as! AddLocationMapViewController
 
                 if self.location != nil {
+                    vc.locationString = self.locationTextField.text ?? ""
                     vc.location = self.location ?? nil
                     vc.linkText = self.linkTextField.text ?? ""
                 }

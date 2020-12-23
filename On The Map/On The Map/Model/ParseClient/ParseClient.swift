@@ -6,8 +6,6 @@
 //  Copyright © 2020 Brian Andreasen. All rights reserved.
 //
 
-//"https://onthemap-api.udacity.com/v1/StudentLocation?order=-updatedAt"
-
 import Foundation
 
 class ParseClient {
@@ -16,13 +14,11 @@ class ParseClient {
         
         case getStudentInformation
         case postStudentInformation
-//        case updateStudentInformation
         
         var stringValue: String {
             switch self {
-                case .getStudentInformation: return Endpoints.base + "v1/StudentLocation?limit=100&order=-updatedAt"
+                case .getStudentInformation: return Endpoints.base + "v1/StudentLocation?limit=100&order=updatedAt"
                 case .postStudentInformation: return Endpoints.base + "v1/StudentLocation"
-//                case .updateStudentInformation: return Endpoints.base + "v1/StudentLocation/<objectId>"
             }
         }
         
@@ -78,7 +74,9 @@ class ParseClient {
                 }
                 return
             }
+
             let decoder = JSONDecoder()
+            
             do {
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
@@ -97,6 +95,7 @@ class ParseClient {
                 }
             }
         }
+        
         task.resume()
     }
         
@@ -111,14 +110,12 @@ class ParseClient {
         }
     }
     
-    class func createStudentInformation(latitude: Double, longitude: Double, linkText: String, completion: @escaping(Bool, Error?) -> Void) {
+    class func createStudentInformation(latitude: Double, longitude: Double, mapString: String, linkText: String, completion: @escaping(Bool, Error?) -> Void) {
+        let body = PostStudentInformation(uniqueKey: "1234", firstName: "Abe", lastName: "Johnston", mapString: mapString, latitude: latitude, longitude: longitude, mediaURL: linkText)
         
-        // Should the firstName and lastName be the properties of the current logged in user?
-        // Should mapString be the current location?
-        let body = PostStudentInformation(uniqueKey: "1234", firstName: "Abe", lastName: "Johnston", mapString: "Albertville, MN", latitude: latitude, longitude: longitude, mediaURL: linkText)
-        
-        taskForPOSTRequest(url: Endpoints.postStudentInformation.url, responseType: StudentInformation.self, body: body) { response, error in
-            if let response = response {
+        // MARK -- May need to change the response type to a StudentInformationResponse ??
+        taskForPOSTRequest(url: Endpoints.postStudentInformation.url, responseType: PostLocationResponse.self, body: body) { response, error in
+            if response != nil {
                 completion(true, nil)
             } else {
                 // May want to consider passing the error in a completion handler response.

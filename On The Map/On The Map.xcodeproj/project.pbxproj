@@ -31,6 +31,7 @@
 		4AC8CFE524550E0000B1EFAA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8CFE424550E0000B1EFAA /* MapViewController.swift */; };
 		4AC8CFE724550E2D00B1EFAA /* MapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8CFE624550E2D00B1EFAA /* MapTableViewController.swift */; };
 		4AC8CFE924550E8800B1EFAA /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8CFE824550E8800B1EFAA /* AddLocationViewController.swift */; };
+		4ADEF85E259312F80008BA19 /* PostLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEF85D259312F80008BA19 /* PostLocationResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		4AC8CFE424550E0000B1EFAA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4AC8CFE624550E2D00B1EFAA /* MapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewController.swift; sourceTree = "<group>"; };
 		4AC8CFE824550E8800B1EFAA /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		4ADEF85D259312F80008BA19 /* PostLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				4AA5A9F3247D7B1F00FC6A9E /* StudentInformation.swift */,
 				4A0EFA28250E6FE100C33861 /* ParseAPIError.swift */,
 				4A0EFA2A250E855900C33861 /* StudentInformationResults.swift */,
+				4ADEF85D259312F80008BA19 /* PostLocationResponse.swift */,
 			);
 			path = "Parse Response";
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				4AA5A9E7247D799D00FC6A9E /* LoginRequest.swift in Sources */,
 				4A0EFA29250E6FE100C33861 /* ParseAPIError.swift in Sources */,
 				4A3DF05B247DCFE80067EA29 /* UdacityAccountResponse.swift in Sources */,
+				4ADEF85E259312F80008BA19 /* PostLocationResponse.swift in Sources */,
 				4AA5A9F1247D7A3000FC6A9E /* ParseClient.swift in Sources */,
 				4A0EFA2B250E855900C33861 /* StudentInformationResults.swift in Sources */,
 			);
