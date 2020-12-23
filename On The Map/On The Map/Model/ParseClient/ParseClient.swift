@@ -20,7 +20,7 @@ class ParseClient {
         
         var stringValue: String {
             switch self {
-                case .getStudentInformation: return Endpoints.base + "v1/StudentLocation?order=-updatedAt"
+                case .getStudentInformation: return Endpoints.base + "v1/StudentLocation?limit=100&order=-updatedAt"
                 case .postStudentInformation: return Endpoints.base + "v1/StudentLocation"
 //                case .updateStudentInformation: return Endpoints.base + "v1/StudentLocation/<objectId>"
             }

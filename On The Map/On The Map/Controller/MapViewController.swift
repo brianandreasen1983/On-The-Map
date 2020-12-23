@@ -16,6 +16,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
+        mapView.delegate = self
 
         var annotations = [MKPointAnnotation]()
         
