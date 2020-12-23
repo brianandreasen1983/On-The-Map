@@ -27,7 +27,7 @@ class AddLocationMapViewController: UIViewController, MKMapViewDelegate {
     
     func handlePostResponse(success: Bool, error: Error?) {
         if success {
-//            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
         } else {
             // Present an error to the user if the post fails....
             let alertVC = UIAlertController(title: "Posting Location Failed", message: "Unable to post your current location. Please try again.", preferredStyle: .alert)

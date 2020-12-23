@@ -98,7 +98,7 @@
         <!--Tabbed Bar View Controller-->
         <scene sceneID="OfR-2e-bkK">
             <objects>
-                <tabBarController id="lvC-mQ-CcA" customClass="TabbedBarViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbedBarController" id="lvC-mQ-CcA" customClass="TabbedBarViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="awK-Od-lBV"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KNP-bG-d0I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -376,7 +376,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="W4P-nJ-9YA"/>
+        <segue reference="CR4-gu-adb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_pin" width="24" height="24"/>

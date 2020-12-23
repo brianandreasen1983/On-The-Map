@@ -37,6 +37,10 @@ class AddLocationViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
     func showLocationError(message: String) {
         let alertVC = UIAlertController(title: "Location not found", message: message, preferredStyle: .alert )
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -66,7 +70,7 @@ class AddLocationViewController: UIViewController {
         
         geocoder.geocodeAddressString(locationTextField.text ?? "") { (placemarks, error) in
             if (self.locationTextField.text == "") {
-                self.showLocationError(message: "A location is required.")
+                self.showLocationError(message: "A location is required. Please try another location")
             } else {
                 self.processGeocodedResponse(withPlacemarks: placemarks, error: error)
                 
